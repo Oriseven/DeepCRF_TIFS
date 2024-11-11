@@ -66,7 +66,7 @@ def plot_confusion(y_true,y_predict,figure_name,args):
                                                     
     print("Plot confusion matrix")
     figure_name =  os.path.dirname(args.checkpoint_dir) + figure_name 
-    df_cm = pd.DataFrame(confusion_matrix, class_names, class_names)    
+    df_cm = pd.DataFrame(cf_matrix, class_names, class_names)    
     fig = plt.figure(figsize = (args.class_num-5,args.class_num-5))
     sns.set(font_scale=1.2)
     sns.heatmap(df_cm, annot=True,fmt='.2f',cmap='Blues',cbar=False)
@@ -167,7 +167,7 @@ def main(args: OmegaConf):
 
     _, _, y_predict, y_true = validate(args, model,criterion, dataloader)
     outputs = save_output.outputs
-    figure_name = args.figure_name + '_model'
+    figure_name = args.figure_name + '_1'
     plot_confusion(y_true, y_predict, figure_name, args)
 
     # Visualize the feature maps

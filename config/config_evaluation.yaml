@@ -16,7 +16,7 @@ cuda: 1
 class_num: 19
 data_fusion: 0 
 Ncsi: 1 
-Model: deepcrf-con  #deepcrf, complex-deepcrf, ss, self-acc, att_network
+Model: deepcrf #deepcrf, complex-deepcrf, ss, self-acc, att_network
 loss: cross #"cross,SVM,contrastive"
 test_with_practical_data: 0
 test_positions: ['d3','d10','d12','d16','p1','p2','p3','outdoor','mobilenlos'] 
