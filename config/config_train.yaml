@@ -1,0 +1,53 @@
+defaults:  
+  - _self_  
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+  
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+
+# ---------------------------------------------------------------------------- #
+# Data prepare options
+# ---------------------------------------------------------------------------- #
+train_positions_syn: ['d3','d10'] #practical data from specific positions that used to synthesize data 
+da: 1 # data augmentation type: 0 for estimated fingerprint, 1 for denoised csi
+channel_type: [0,1,2,3,4,5] #channel_type=['B_L','B_NL','C_L','C_NL','D_L','D_NL','F']
+train_channel_num_per_channeltype: 360 # 320 
+val_channel_num_per_channeltype: 40 # 20
+train_with_practical_data: 1 
+train_positions: ['d3','d10'] 
+test_positions: ['d3','d10','d12','d16','p1','p2','p3','outdoor','mobile']
+
+# ---------------------------------------------------------------------------- #
+# Training options
+# ---------------------------------------------------------------------------- #
+batch_size: 512 # batch size Per GPU
+num_workers: 2
+numepoch: 100
+
+data_fusion: 0 
+Ncsi: 1
+cuda: 1
+class_num: 19
+Model: deepcrf-con  #deepcrf, complex-deepcrf, ss, self-acc, att_network
+loss: cross #"cross,SVM,contrastive"
+
+patience: 5
+d: 64 #filter num
+af: 'gelu' #activation funtion
+snr: null #filter data based on snr; null means no filter
+ 
+optimizer:
+  weight_decay: 1e-4
+  lr:  1e-3  
+  lr_contrastive: 1e-2
+
+
+# ---------------------------------------------------------------------------- #
+# logging
+# ---------------------------------------------------------------------------- #
+checkpoint_dir: checkpoints/
+load_model: 
+

@@ -1,0 +1,42 @@
+defaults:  
+  - _self_  
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+  
+hydra:  
+  output_subdir: null  
+  run:  
+    dir: .
+# ---------------------------------------------------------------------------- #
+# Evaluation options
+# ---------------------------------------------------------------------------- #
+batch_size: 512 # batch size Per GPU
+num_workers: 1
+cuda: 1
+class_num: 19
+data_fusion: 0 
+Ncsi: 1 
+Model: deepcrf-con  #deepcrf, complex-deepcrf, ss, self-acc, att_network
+loss: cross #"cross,SVM,contrastive"
+test_with_practical_data: 0
+test_positions: ['d3','d10','d12','d16','p1','p2','p3','outdoor','mobilenlos'] 
+da: 1
+test_positions_syn: ['d3','d10'] 
+test_channel_num_per_channeltype: 40 # 20
+channel_type: 6 # [0,1,2,3,4,5,6] 
+snr: null
+d: 64 
+af: 'gelu' 
+
+figure_name: test_fusion
+
+optimizer:
+  weight_decay: 1e-4
+  lr:  1e-3  
+  lr_contrastive: 0.0001
+
+# ---------------------------------------------------------------------------- #
+# logging
+# ---------------------------------------------------------------------------- #
+checkpoint_dir: 
+
