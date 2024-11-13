@@ -70,7 +70,7 @@ def training(train_dataloader, val_dataloder, test_dataloder, model, optimizer, 
         val_accs.append(val_acc.item())
         # EARLY STOPPING CHECK
         checkpoint_path = os.path.join(args.checkpoint_dir, f"best_checkpoint")
-        if val_acc < state["best_acc"]: #or val_loss >= state["best_loss"]:
+        if val_loss >= state["best_loss"]:
             state["worse_epochs"] += 1
         else:
             print("MODEL IMPROVED ON VALIDATION SET!")

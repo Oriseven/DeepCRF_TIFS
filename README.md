@@ -1,6 +1,6 @@
 # DeepCRF_TIFS
 
-This repository provides the implementation of DeepCRF. Read the preprint for more details: TBD
+This repository provides the implementation of DeepCRF. Read the preprint for more details: [DeepCRF](https://arxiv.org/pdf/2411.06925)
 
 ## Setup
 
@@ -12,7 +12,7 @@ Other packages are listed in `requirements.txt`.
 
 ## Datasets:
 
-Dataset could be downloaded from this file: [CSI Dataset](...).  
+Dataset could be downloaded from this file: [CSI Dataset](https://drive.google.com/file/d/1kfoOhMI87v3GPXsQVKUzK83Lpmx7e5g8/view?usp=sharing).  
 After downloading, please move it to the `data/` folder with the following directory structure:
 
 ```bash
@@ -35,7 +35,7 @@ python3 main.py  Model='deepcrf-con' loss='contrastive'
 python3 main.py  Model='deepcrf' loss='cross'
 
 # Baselines
-python3 main.py  Model='ss' loss='cross'
+python3 main.py  Model='ss' loss='cross' train_channel_num_per_channeltype=0 val_channel_num_per_channeltype=0
 python3 main.py  Model='self-acc' loss='cross'
 python3 main.py  Model='att_network' loss='cross'
 ```
@@ -53,4 +53,12 @@ python3 evaluation.py  Model='deepcrf' test_with_practical_data=0 channel_type=0
 ## Citation
 
 ```
-TBD
+@misc{kong2024deepcrf,
+      title={DeepCRF: Deep Learning-Enhanced CSI-Based RF Fingerprinting for Channel-Resilient WiFi Device Identification}, 
+      author={Ruiqi Kong and He Chen},
+      year={2024},
+      eprint={2411.06925},
+      archivePrefix={arXiv},
+      primaryClass={eess.SP},
+      url={https://arxiv.org/abs/2411.06925}, 
+}
