@@ -1,6 +1,6 @@
 # DeepCRF_TIFS
 
-This repository provides the implementation of DeepCRF. Read the preprint for more details: [DeepCRF](https://arxiv.org/pdf/2411.06925)
+This repository provides the implementation of DeepCRF. Read the paper for more details: [DeepCRF: Deep Learning-Enhanced CSI-Based RF Fingerprinting for Channel-Resilient WiFi Device Identification](https://ieeexplore.ieee.org/document/10793404)
 
 ## Setup
 
@@ -24,6 +24,7 @@ $data/
   ...
   syn_testing_F.mat
 ```
+Please note that the suffixes of the files of CSI data corresponding to P1-P9 in the paper are ['d3','d10','d12','d16','p1','p2','p3','outdoor',' mobilenlos'].
 
 ## Training
 
@@ -53,12 +54,13 @@ python3 evaluation.py  Model='deepcrf' test_with_practical_data=0 channel_type=0
 ## Citation
 
 ```
-@misc{kong2024deepcrf,
-      title={DeepCRF: Deep Learning-Enhanced CSI-Based RF Fingerprinting for Channel-Resilient WiFi Device Identification}, 
-      author={Ruiqi Kong and He Chen},
-      year={2024},
-      eprint={2411.06925},
-      archivePrefix={arXiv},
-      primaryClass={eess.SP},
-      url={https://arxiv.org/abs/2411.06925}, 
-}
+@ARTICLE{kong2024deepcrf,
+  author={Kong, Ruiqi and Chen, He},
+  journal={IEEE Transactions on Information Forensics and Security}, 
+  title={DeepCRF: Deep Learning-Enhanced CSI-Based RF Fingerprinting for Channel-Resilient WiFi Device Identification}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TIFS.2024.3515796}}
+
